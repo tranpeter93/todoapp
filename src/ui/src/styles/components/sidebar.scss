@@ -1,0 +1,51 @@
+.sidebar-default {
+   background-color: #abdbff1f;
+   // height: 100vh;   
+   min-height: 100vh;
+   width: 100px;
+   display: flex;
+   justify-content: center;   
+
+   .sidebar-button-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      height: 300px;
+      position: relative;
+      top: 25px;
+
+      button {
+         background: transparent;
+         color: skyblue;
+         border: 2px solid;
+         width: 50px;
+         height: 50px;
+         cursor: pointer;
+         padding: 0; 
+         margin: 0;
+
+
+         &:hover {
+            color: skyblue;
+            background-color: aliceblue;
+         }
+
+         &:active {
+            background-color: white;
+            border: solid lightskyblue;
+         }
+      }
+
+      .music-button {        
+
+      }
+   
+      .search-button {
+        
+      }
+   
+      .calendar-button {
+        
+      }
+   }
+}

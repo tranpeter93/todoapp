@@ -1,0 +1,39 @@
+.todolist-viewOptions {
+   background-color: white;
+   display: flex;
+   flex-direction: row;
+   justify-content: baseline;
+   // margin-bottom: 10px;
+   align-items: center;
+   // border: 1px solid lightblue;
+
+   .viewOptions-buttonGroup {
+      display: flex;
+      flex-direction: row;      
+
+      .viewOptions-filter {
+         
+      }
+   
+      .viewOptions-sort {
+   
+      }
+   }
+}
+
+.viewOptions-popUp {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+
+   font-size: 16px;
+   font-weight: 100;
+
+   .show {
+      display: block;
+   }
+
+   .hide {
+      display: none;
+   }
+}
