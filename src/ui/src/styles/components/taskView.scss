@@ -41,15 +41,17 @@ $activeInput: lightblue;
       width: 100%;
 
       .listSelector {
-         
+         height: 30px;
+
          button {
             font-size: 18px;
             font-family: $secondary-text-family;
+            font-weight: 100;
 
             color: $secondary-color-30;
             background: transparent;
             background-color: $secondary-background-color-30;
-            border: 1px solid #effaff;
+            border: none;
 
             &:hover {
                background-color: $secondary-background-color-30-hover;

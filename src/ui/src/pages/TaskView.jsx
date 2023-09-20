@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TodoList from "./TodoList";
 import "../styles/components/taskView.scss"
 import { getLists } from "../services/TodoApi";
+import Tab from "./Tab";
 
 export default function TaskView() {
 
@@ -15,6 +16,10 @@ export default function TaskView() {
    useEffect(() => console.log( "List: ", list ), [list])
 
 
+   const handleSelectList = (item) => {
+      setCurrentListId(item.id)
+   }
+
    return (
       <div className="taskView">
          <div className="taskView-header">
@@ -22,11 +27,7 @@ export default function TaskView() {
          </div>
          <div className='taskView-listGroup'>
             {list.map((item, idx) => {
-               return (
-                  <div className='listSelector' key={idx}>
-                     <button onClick={(e) => setCurrentListId(item.id)}>{item.name}</button>
-                  </div>
-               )
+               return <Tab key={idx} item={item} handleSelect={handleSelectList} isSelected={idx+1 === currentListId}/>
             })}
          </div>
          <div className="taskView-container">
