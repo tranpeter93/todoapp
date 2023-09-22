@@ -42,12 +42,12 @@ public class TodoListRestController {
       return this.todoListService.createOrUpdateList(list);
    }
 
-   @DeleteMapping
+   @DeleteMapping("/{listId}")
    public void deleteList(@PathVariable long listId) {
       this.todoListService.deleteList(listId);
    }
 
-   @PutMapping
+   @PutMapping("/{listId}")
    public TodoList updateList(@PathVariable long listId, @RequestBody TodoList list) {
       if ( listId != list.getId() ) {
          throw new RuntimeException("ids do not match");
