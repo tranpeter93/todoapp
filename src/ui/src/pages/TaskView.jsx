@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TodoList from "./TodoList";
 import "../styles/components/taskView.scss"
-import { getLists } from "../services/TodoApi";
+import { getLists } from "../services/TodoListApi";
 import Tab from "./Tab";
 
 export default function TaskView() {

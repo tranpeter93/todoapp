@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import { deleteTodo, createTodo, updateTodo, getAllTodos, reorderedTodos, getTodosByList } from "../services/TodoApi";
+import { deleteTodo, createTodo, updateTodo, getTodosByList } from "../services/TodoApi";
 
 import "../styles/components/todoList.scss"
 
@@ -27,8 +27,8 @@ function TodoList({listId}) {
       handleRefresh()
    }
 
-   const handleDelete = async (id) => {
-      await deleteTodo(id)
+   const handleDelete = async (listId, id) => {
+      await deleteTodo(listId, id)
       handleRefresh()
    }
 
@@ -67,7 +67,7 @@ function TodoList({listId}) {
 
       console.log( result )
 
-      reorderedTodos( copyTodos )
+      // reorderedTodos( copyTodos )
       handleRefresh()
    }
 

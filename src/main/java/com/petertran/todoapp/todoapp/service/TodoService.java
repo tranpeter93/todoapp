@@ -2,7 +2,6 @@ package com.petertran.todoapp.todoapp.service;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -10,21 +9,16 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.petertran.todoapp.todoapp.data.TodoEntity;
-import com.petertran.todoapp.todoapp.data.TodoListEntity;
-import com.petertran.todoapp.todoapp.repository.TodoListRepository;
 import com.petertran.todoapp.todoapp.repository.TodoRepository;
 import com.petertran.todoapp.todoapp.util.DateUtils;
 import com.petertran.todoapp.todoapp.web.model.Todo;
-import com.petertran.todoapp.todoapp.web.model.TodoList;
 
 @Service
 public class TodoService {
    private final TodoRepository todoRepository;
-   private final TodoListRepository todoListRepository;
 
-   public TodoService(TodoRepository todoRepository, TodoListRepository todoListRepository) {
+   public TodoService(TodoRepository todoRepository) {
       this.todoRepository = todoRepository;
-      this.todoListRepository = todoListRepository;
    }
 
    public List<Todo> getAllTodo() {
@@ -47,7 +41,7 @@ public class TodoService {
       return todos;
    }
 
-   public List<Todo> getAllTodosByListId( long listId ) {
+   public List<Todo> getTodosByListId( Long listId ) {
       List<Todo> todos = new ArrayList<Todo>();
       Iterable<TodoEntity> todoEntities = this.todoRepository.findByListId(listId);
 
@@ -96,19 +90,6 @@ public class TodoService {
       return updatedList;
    }
 
-   // LIST
-   public List<TodoList> getAllList() {
-      List<TodoList> result = new ArrayList<TodoList>();
-      Iterable<TodoListEntity> entities = this.todoListRepository.findAll(); 
-
-      entities.forEach( list -> {
-         result.add( this.translateDbToWeb(list) );
-      });
-
-      return result;
-   }
-
-
    // Utility
    private TodoEntity translateWebToDb(Todo todo) {
       TodoEntity entity = new TodoEntity();
@@ -120,7 +101,7 @@ public class TodoService {
       entity.setCompleted( todo.isCompleted() );
       entity.setDate( DateUtils.createDateFromDateString( date != null ? date.toString() : null ));
       entity.setPosition( todo.getPosition() );
-      entity.setListId(todo.getListId());
+      // entity.setListEntity(todo.getListId());
 
       return entity;
    }
@@ -133,21 +114,8 @@ public class TodoService {
             entity.getDescription(), 
             entity.isCompleted(), 
             dateSql, 
-            entity.getPosition(),
-            entity.getListId() 
+            entity.getPosition()
+            // entity.getListEntity() 
          );
-   }
-
-   private TodoListEntity translateWebToDb(TodoList list) {
-      TodoListEntity entity = new TodoListEntity();
-      
-      entity.setId( list.getId() );
-      entity.setName( list.getName() );
-
-      return entity;
-   }
-
-   private TodoList translateDbToWeb(TodoListEntity entity) {
-      return new TodoList(entity.getId(), entity.getName());
    }
 }

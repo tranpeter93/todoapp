@@ -19,7 +19,7 @@ import com.petertran.todoapp.todoapp.service.TodoService;
 import com.petertran.todoapp.todoapp.web.model.Todo;
 
 @RestController
-@RequestMapping("/api/todos")
+@RequestMapping("/api/lists/{listId}/todos")
 public class TodoRestController {
    
    private TodoService todoService;
@@ -29,25 +29,24 @@ public class TodoRestController {
    }
 
    @GetMapping
-   public List<Todo> getAllTodoEntity(@RequestParam(name="completed", required = false) boolean completed) {
+   public List<Todo> getAllTodosByListId(@PathVariable long listId, @RequestParam(name="completed", required = false) boolean completed) {
 
-      List<Todo> result = null;
+      // List<Todo> result = null;
 
 
-      if ( completed  ) {
-         result = this.todoService.getAllTodoByCompletion(true);
-      }
-      else {
-         result = this.todoService.getAllTodo();
-      }
+      // if ( completed  ) {
+      //    result = this.todoService.getAllTodoByCompletion(true);
+      // }
+      // else {
+      //    result = this.todoService.getAllTodo();
+      // }
 
-      return result;
+      
+      return this.todoService.getTodosByListId(listId);
+
    }
 
-   @GetMapping("/{listId}")
-   public List<Todo> getTodo(@PathVariable long listId) {
-      return this.todoService.getAllTodosByListId(listId);
-   }
+
 
    @PostMapping
    @ResponseStatus( HttpStatus.CREATED )

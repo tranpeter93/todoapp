@@ -1,6 +1,5 @@
 package com.petertran.todoapp.todoapp.data;
 
-import java.time.Duration;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -8,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -19,7 +20,7 @@ public class TodoEntity {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY )
    @Column(name="TODO_ID")
-   private long id;
+   private Long id;
 
    @Column(name="NAME")
    private String name;
@@ -37,7 +38,7 @@ public class TodoEntity {
    private int position;
 
    @Column(name="LIST_ID")
-   private long listId;
+   private Long listId;
 
    // @Column(name="DURATION")
    // private Duration duration;
