@@ -8,7 +8,7 @@ function Layout() {
    return (
       <>
          <div className="layout">
-            <SidebarDefault/>
+            {/* <SidebarDefault/> */}
             <div className="main">
                <Outlet/>
             </div>

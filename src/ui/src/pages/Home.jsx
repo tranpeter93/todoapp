@@ -9,8 +9,8 @@ function Home() {
       <>      
          <TaskView/>
          <div className='home'>
-            <Pomodoro/>
-            <Weather/>
+            {/* <Pomodoro/>
+            <Weather/> */}
          </div>
       </>
    )
