@@ -101,7 +101,7 @@ public class TodoService {
       entity.setCompleted( todo.isCompleted() );
       entity.setDate( DateUtils.createDateFromDateString( date != null ? date.toString() : null ));
       entity.setPosition( todo.getPosition() );
-      // entity.setListEntity(todo.getListId());
+      entity.setListId(todo.getListId());
 
       return entity;
    }
@@ -114,8 +114,8 @@ public class TodoService {
             entity.getDescription(), 
             entity.isCompleted(), 
             dateSql, 
-            entity.getPosition()
-            // entity.getListEntity() 
+            entity.getPosition(),
+            entity.getListId()             
          );
    }
 }

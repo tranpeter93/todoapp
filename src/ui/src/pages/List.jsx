@@ -39,7 +39,7 @@ function List() {
                   {
                      list.map((item, idx) => {
                         return (
-                           <li className="list-item">
+                           <li className="list-item" key={idx}>
                               <div className="list-name">{item.name}</div>
                               <div>
                                  <div className="list-setDefault">

@@ -16,7 +16,7 @@ function Todo({todo, update, isVisible, index, handleDelete}) {
    const saveChanges = async () => {
       disableEditing()
 
-      const updatedTodo = {id: id, name: name, description: description, completed: completed }
+      const updatedTodo = {...todo, name: name }
       update(id, updatedTodo).catch( ex => console.log(ex) )
    }
 
@@ -87,7 +87,7 @@ function Todo({todo, update, isVisible, index, handleDelete}) {
                            </button>
                         </div> */}
                         <div className="listItem-delete">
-                           <button className={showExpandButton || isExpanded ? 'icon-button show' : 'hide'} onClick={e => handleDelete(id)}>
+                           <button className={showExpandButton || isExpanded ? 'icon-button show' : 'hide'} onClick={e => handleDelete(todo.listId, id)}>
                               <iconify-icon icon="mdi:trash-can-outline"></iconify-icon> 
                            </button>
                         </div>

@@ -23,7 +23,7 @@ function TodoList({listId}) {
    // EVENT HANDLERS  
    const handleAdd = async (todo) => {
 
-      await createTodo(todo)
+      await createTodo({...todo, listId: listId})
       handleRefresh()
    }
 
@@ -32,8 +32,8 @@ function TodoList({listId}) {
       handleRefresh()
    }
 
-   const handleUpdate = async (id, todo) => {
-      await updateTodo(id, todo);
+   const handleUpdate = async (listId, id, todo) => {
+      await updateTodo(listId, id, todo);
       handleRefresh()
    }
 
@@ -110,7 +110,7 @@ function TodoList({listId}) {
                   {todos.map((todo, index) => {
                      return (
                         <Todo key={todo.id} todo={todo} index={index}
-                           update={handleUpdate} handleDelete={handleDelete} isVisible={ handleVisibility(todo) } />                           
+                           update={handleUpdate} handleDelete={handleDelete} isVisible={ handleVisibility(todo)} />                           
                      )
                   })}
                   {provided.placeholder}

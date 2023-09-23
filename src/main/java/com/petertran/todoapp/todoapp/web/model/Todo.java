@@ -25,5 +25,5 @@ public class Todo {
    private boolean isCompleted;
    private Date date;   
    private int position;
-   // private long listId;
+   private Long listId;
 }

@@ -39,6 +39,8 @@ export const getTodoById = async (listId, todoId) => {
 
 export const updateTodo = async (id, todo) => {
    try {
+
+      console.log( "Updated:", todo )
       const save = await fetch(`/api/lists/${todo.listId}/todos/${id}`, {
          method: "PUT",
          headers: {"Content-Type": "application/json"},
