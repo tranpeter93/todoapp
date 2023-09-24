@@ -8,14 +8,14 @@ import "../styles/components/todoList.scss"
 import Todo from "./Todo";
 import ViewOptions from "./ViewOptions";
 
-function TodoList({listId}) {
+function TodoList({listId, handleDeleteList}) {
    const [todos, setTodos] = useState([])
    const [newTaskName, setNewTaskName] = useState('')
    const [hideCompleted, setHideCompleted] = useState(false)
 
    useEffect(() => {
 
-      console.log( "Updating to list: ", listId)
+      console.log( "Updating to list id: ", listId)
 
       getTodosByList(listId).then(data => setTodos(data))
    }, [listId])
@@ -98,11 +98,11 @@ function TodoList({listId}) {
       }
    }
 
-   useEffect(() => console.log( "Todos: ", todos ), [todos])
+   // useEffect(() => console.log( "Todos: ", todos ), [todos])
 
    return (
       <>
-         <ViewOptions handleFilter={handleHideCompleted} />
+         <ViewOptions handleFilter={handleHideCompleted}/>
          <DragDropContext onDragEnd={handleDragEnd}>
             <Droppable droppableId="todoDroppable">
             {(provided) => (

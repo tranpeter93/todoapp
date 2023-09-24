@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/components/viewOptions.scss"
 
-function ViewOptions({handleFilter, handleSort}) {
+function ViewOptions({handleFilter}) {
 
    return (
       <>
@@ -13,27 +13,7 @@ function ViewOptions({handleFilter, handleSort}) {
                      <iconify-icon icon="mdi:filter"></iconify-icon>
                   </button>
                </div>
-               <div className="viewOptions-sort">
-                  <button className="icon-button" onClick={handleSort}>
-                     {/* <label>sort</label> */}
-                     <iconify-icon icon="mdi:sort"></iconify-icon>
-                  </button>
-               </div>
             </div>         
-         </div>
-         <div className="viewOptions-popUp hide">
-            {/* <div>
-               All Items
-            </div>
-            <div>
-               Incomplete
-            </div>
-            <div>
-               Completed
-            </div>
-            <div>
-               Archived
-            </div> */}
          </div>
       </>
    )

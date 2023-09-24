@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import "../styles/components/Tab.scss"
 
 function Tab({item, handleSelect, isSelected}) {
 
    const unselectedStyle = {backgroundColor: 'transparent'}
    const selectedStyle   = {backgroundColor: 'white'}
-
+   
    const selectHandler = () => {
       handleSelect( item )
    }

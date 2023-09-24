@@ -37,7 +37,7 @@ export const getListsById = async (id) => {
 
 export const updateList = async (list) => {
    try {
-      const save = await fetch(`/api/lists/${list.listId}`, {
+      const save = await fetch(`/api/lists/${list.id}`, {
          method: "PUT",
          headers: {"Content-Type": "application/json"},
          body: JSON.stringify( list )
@@ -55,8 +55,6 @@ export const deleteList = async (listId) => {
       const res = await fetch(`/api/lists/${listId}`, {
          method: "DELETE"
       })
-
-      console.log( res.ok )
    }
    catch(error) {
       console.log(error)
